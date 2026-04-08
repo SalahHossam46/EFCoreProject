@@ -27,24 +27,42 @@ namespace EFCoreProject
 
             var user = _context.Users.FirstOrDefault(u => u.Username == username && u.IsActive);
 
-            //if (user != null && PasswordHelper.VerifyPassword(password, user.PasswordHash))
-            //{
-            //    lblError.Text = "";
-            //    MessageBox.Show($"Login successful! Welcome {user.Username}\nRole: {user.Role}", "Success",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (user != null && PasswordHelper.VerifyPassword(password, user.PasswordHash))
+            {
+                lblError.Text = "";
+                MessageBox.Show($"Login successful! Welcome {user.Username}\nRole: {user.Role}", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            //    StudentForm studnetForm = new StudentForm(user);
-            //    studnetForm.Show();
-            //    this.Hide();
-            //}
-            //else
-            //{
-            //    lblError.Text = "Invalid username or password";
-            //}
+                if (user.Role == "Admain")
+                {
+
+                }
+                else if (user.Role == "Instructor")
+                {
+
+                }
+                else    //Student
+                {
+
+                }
+                this.Hide();
+            }
+            //If username or password invalid
+            else
+            {
+                lblError.Text = "Invalid username or password";
+            }
 
 
         }
         //Register
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Register registerForm = new Register();
+            registerForm.ShowDialog();
+        }
+
 
     }
 }

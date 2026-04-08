@@ -73,7 +73,7 @@
             btnLogin.TabIndex = 11;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += this.btnLogin_Click;
+            btnLogin.Click += btnLogin_Click;
             // 
             // btnRegister
             // 
@@ -83,6 +83,7 @@
             btnRegister.TabIndex = 10;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
             // 
             // txtPassword
             // 

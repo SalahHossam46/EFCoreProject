@@ -54,7 +54,7 @@ namespace EFCoreProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("MyProject.Models.Course", b =>
@@ -95,7 +95,7 @@ namespace EFCoreProject.Migrations
                         .IsUnique()
                         .HasFilter("[InstructorId1] IS NOT NULL");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("MyProject.Models.CourseSession", b =>
@@ -122,7 +122,7 @@ namespace EFCoreProject.Migrations
 
                     b.HasIndex("InstructorId");
 
-                    b.ToTable("CourseSessions");
+                    b.ToTable("CourseSessions", (string)null);
                 });
 
             modelBuilder.Entity("MyProject.Models.CourseSessionAttendance", b =>
@@ -149,7 +149,7 @@ namespace EFCoreProject.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("CourseSessionAttendances");
+                    b.ToTable("CourseSessionAttendances", (string)null);
                 });
 
             modelBuilder.Entity("MyProject.Models.Department", b =>
@@ -174,7 +174,7 @@ namespace EFCoreProject.Migrations
                         .IsUnique()
                         .HasFilter("[ManagerId] IS NOT NULL");
 
-                    b.ToTable("Departments");
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("MyProject.Models.Instructor", b =>
@@ -201,7 +201,7 @@ namespace EFCoreProject.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Instructors");
+                    b.ToTable("Instructors", (string)null);
                 });
 
             modelBuilder.Entity("MyProject.Models.Student", b =>
@@ -223,7 +223,7 @@ namespace EFCoreProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("MyProject.Models.StudentCourse", b =>
@@ -238,7 +238,7 @@ namespace EFCoreProject.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("StudentCourses");
+                    b.ToTable("StudentCourses", (string)null);
                 });
 
             modelBuilder.Entity("MyProject.Models.Course", b =>
