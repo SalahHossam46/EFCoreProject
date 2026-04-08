@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EFCoreProject.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -139,5 +140,7 @@ namespace MyProject.Models
         public DbSet<CourseSession> CourseSessions { get; set; }
         public DbSet<CourseSessionAttendance> CourseSessionAttendances { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<User> Users { get; set; }
+
     }
 }
