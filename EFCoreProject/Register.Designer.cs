@@ -162,6 +162,7 @@
             Controls.Add(txtUsername);
             Name = "Register";
             Text = "Register";
+            Load += Register_Load;
             ResumeLayout(false);
             PerformLayout();
         }

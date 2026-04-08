@@ -98,7 +98,7 @@ namespace EFCoreProject
             this.Close();
         }
 
-        private void RegisterForm_Load(object sender, EventArgs e)
+        private void Register_Load(object sender, EventArgs e)
         {
             cboRole.Items.Add("Student");
             cboRole.Items.Add("Instructor");
@@ -106,7 +106,5 @@ namespace EFCoreProject
 
             cboRole.SelectedIndex = 0; // default
         }
-
-
     }
 }
