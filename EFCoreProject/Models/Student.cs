@@ -17,7 +17,7 @@ namespace MyProject.Models
         // I will use email property to link between student and user 
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         // Relationship
 
