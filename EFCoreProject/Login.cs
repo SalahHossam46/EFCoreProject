@@ -33,18 +33,8 @@ namespace EFCoreProject
                 MessageBox.Show($"Login successful! Welcome {user.Username}\nRole: {user.Role}", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (user.Role == "Admain")
-                {
+                MainForm mainForm = new MainForm(user);
 
-                }
-                else if (user.Role == "Instructor")
-                {
-
-                }
-                else    //Student
-                {
-
-                }
                 this.Hide();
             }
             //If username or password invalid

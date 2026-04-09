@@ -132,6 +132,18 @@ namespace MyProject.Models
                 .WithMany(cs => cs.CourseSessionAttendances)   // Session has MANY Attendances
                 .HasForeignKey(csa => csa.CourseSessionId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Email in Student and User
+
+            modelBuilder.Entity<Student>()
+            .HasIndex(s => s.Email)
+            .IsUnique();
+
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
+
+
         }
         public DbSet<Student> Students { get; set; }
         public DbSet<Department> Departments { get; set; }
