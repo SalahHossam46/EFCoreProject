@@ -196,17 +196,10 @@ namespace EFCoreProject
             Controls.Add(dataGridViewStudents);
             Name = "StudentForm";
             Text = "StudentForm";
-            Load += StudentForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewStudents).EndInit();
             panelDetails.ResumeLayout(false);
             panelDetails.PerformLayout();
             ResumeLayout(false);
-        }
-
-        private void StudentForm_Load(object sender, EventArgs e)
-        {
-
-            throw new NotImplementedException();
         }
 
         #endregion

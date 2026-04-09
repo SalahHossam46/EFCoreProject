@@ -34,22 +34,28 @@
             cboRole = new ComboBox();
             txtConfirmPassword = new TextBox();
             txtPassword = new TextBox();
-            lable = new Label();
-            lable2 = new Label();
-            label2 = new Label();
-            label1 = new Label();
+            lblConfirmPassword = new Label();
+            lblPassword = new Label();
+            lblEmail = new Label();
+            lblUsername = new Label();
             txtEmail = new TextBox();
             txtUsername = new TextBox();
+            txtPhone = new TextBox();
+            txtLastName = new TextBox();
+            txtFirstName = new TextBox();
+            lblFirstName = new Label();
+            lblLastName = new Label();
+            lblPhone = new Label();
             SuspendLayout();
             // 
             // lblError
             // 
             lblError.AutoSize = true;
+            lblError.ForeColor = Color.Red;
             lblError.Location = new Point(192, 390);
             lblError.Name = "lblError";
-            lblError.Size = new Size(41, 20);
+            lblError.Size = new Size(0, 20);
             lblError.TabIndex = 23;
-            lblError.Text = "Error";
             // 
             // btnCancel
             // 
@@ -74,7 +80,7 @@
             // cboRole
             // 
             cboRole.FormattingEnabled = true;
-            cboRole.Location = new Point(335, 285);
+            cboRole.Location = new Point(59, 301);
             cboRole.Name = "cboRole";
             cboRole.Size = new Size(151, 28);
             cboRole.TabIndex = 20;
@@ -93,41 +99,41 @@
             txtPassword.Size = new Size(125, 27);
             txtPassword.TabIndex = 18;
             // 
-            // lable
+            // lblConfirmPassword
             // 
-            lable.AutoSize = true;
-            lable.Location = new Point(192, 212);
-            lable.Name = "lable";
-            lable.Size = new Size(127, 20);
-            lable.TabIndex = 17;
-            lable.Text = "Confirm Password";
+            lblConfirmPassword.AutoSize = true;
+            lblConfirmPassword.Location = new Point(192, 212);
+            lblConfirmPassword.Name = "lblConfirmPassword";
+            lblConfirmPassword.Size = new Size(127, 20);
+            lblConfirmPassword.TabIndex = 17;
+            lblConfirmPassword.Text = "Confirm Password";
             // 
-            // lable2
+            // lblPassword
             // 
-            lable2.AutoSize = true;
-            lable2.Location = new Point(220, 152);
-            lable2.Name = "lable2";
-            lable2.Size = new Size(70, 20);
-            lable2.TabIndex = 16;
-            lable2.Text = "Password";
+            lblPassword.AutoSize = true;
+            lblPassword.Location = new Point(220, 152);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(70, 20);
+            lblPassword.TabIndex = 16;
+            lblPassword.Text = "Password";
             // 
-            // label2
+            // lblEmail
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(240, 96);
-            label2.Name = "label2";
-            label2.Size = new Size(46, 20);
-            label2.TabIndex = 15;
-            label2.Text = "Email";
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(240, 96);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(46, 20);
+            lblEmail.TabIndex = 15;
+            lblEmail.Text = "Email";
             // 
-            // label1
+            // lblUsername
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(240, 39);
-            label1.Name = "label1";
-            label1.Size = new Size(79, 20);
-            label1.TabIndex = 14;
-            label1.Text = "Username ";
+            lblUsername.AutoSize = true;
+            lblUsername.Location = new Point(240, 39);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(79, 20);
+            lblUsername.TabIndex = 14;
+            lblUsername.Text = "Username ";
             // 
             // txtEmail
             // 
@@ -143,21 +149,75 @@
             txtUsername.Size = new Size(125, 27);
             txtUsername.TabIndex = 12;
             // 
+            // txtPhone
+            // 
+            txtPhone.Location = new Point(321, 334);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(125, 27);
+            txtPhone.TabIndex = 24;
+            // 
+            // txtLastName
+            // 
+            txtLastName.Location = new Point(321, 301);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(125, 27);
+            txtLastName.TabIndex = 25;
+            // 
+            // txtFirstName
+            // 
+            txtFirstName.Location = new Point(321, 257);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(125, 27);
+            txtFirstName.TabIndex = 26;
+            // 
+            // lblFirstName
+            // 
+            lblFirstName.AutoSize = true;
+            lblFirstName.Location = new Point(240, 264);
+            lblFirstName.Name = "lblFirstName";
+            lblFirstName.Size = new Size(80, 20);
+            lblFirstName.TabIndex = 27;
+            lblFirstName.Text = "First Name";
+            // 
+            // lblLastName
+            // 
+            lblLastName.AutoSize = true;
+            lblLastName.Location = new Point(240, 309);
+            lblLastName.Name = "lblLastName";
+            lblLastName.Size = new Size(102, 20);
+            lblLastName.TabIndex = 28;
+            lblLastName.Text = "Second Name";
+            // 
+            // lblPhone
+            // 
+            lblPhone.AutoSize = true;
+            lblPhone.Location = new Point(240, 341);
+            lblPhone.Name = "lblPhone";
+            lblPhone.Size = new Size(50, 20);
+            lblPhone.TabIndex = 29;
+            lblPhone.Text = "Phone";
+            // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblPhone);
+            Controls.Add(lblLastName);
+            Controls.Add(lblFirstName);
+            Controls.Add(txtFirstName);
+            Controls.Add(txtLastName);
+            Controls.Add(txtPhone);
             Controls.Add(lblError);
             Controls.Add(btnCancel);
             Controls.Add(btnRegister);
             Controls.Add(cboRole);
             Controls.Add(txtConfirmPassword);
             Controls.Add(txtPassword);
-            Controls.Add(lable);
-            Controls.Add(lable2);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblConfirmPassword);
+            Controls.Add(lblPassword);
+            Controls.Add(lblEmail);
+            Controls.Add(lblUsername);
             Controls.Add(txtEmail);
             Controls.Add(txtUsername);
             Name = "Register";
@@ -175,11 +235,17 @@
         private ComboBox cboRole;
         private TextBox txtConfirmPassword;
         private TextBox txtPassword;
-        private Label lable;
-        private Label lable2;
-        private Label label2;
-        private Label label1;
+        private Label lblConfirmPassword;
+        private Label lblPassword;
+        private Label lblEmail;
+        private Label lblUsername;
         private TextBox txtEmail;
         private TextBox txtUsername;
+        private TextBox txtPhone;
+        private TextBox txtLastName;
+        private TextBox txtFirstName;
+        private Label lblFirstName;
+        private Label lblLastName;
+        private Label lblPhone;
     }
 }

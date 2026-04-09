@@ -1,6 +1,6 @@
+using EFCoreProject.Models;
 using Microsoft.EntityFrameworkCore;
 using MyProject.Models;
-
 
 namespace EFCoreProject
 {
@@ -25,10 +25,17 @@ namespace EFCoreProject
                 return;
             }
 
-            var user = _context.Users.FirstOrDefault(u => u.Username == username && u.IsActive);
+            User user = _context.Users.FirstOrDefault(u => u.Username == username && u.IsActive);
 
             if (user != null && PasswordHelper.VerifyPassword(password, user.PasswordHash))
             {
+                // NEW: Validate that Student/Instructor record exists for the role
+                if (!IsValidUserRecord(user))
+                {
+                    lblError.Text = $"Your account is incomplete. Please contact administrator.";
+                    return;
+                }
+
                 lblError.Text = "";
                 MessageBox.Show($"Login successful! Welcome {user.Username}\nRole: {user.Role}", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -42,17 +49,29 @@ namespace EFCoreProject
             {
                 lblError.Text = "Invalid username or password";
             }
-
-
         }
-        //Register
 
+        // NEW: Helper method to validate Student/Instructor records exist
+        private bool IsValidUserRecord(User user)
+        {
+            switch (user.Role)
+            {
+                case "Student":
+                    return _context.Students.Any(s => s.Email == user.Email);
+                case "Instructor":
+                    return _context.Instructors.Any(i => i.Email == user.Email);
+                case "Admin":
+                    return true; // Admin doesn't need Student/Instructor record
+                default:
+                    return false;
+            }
+        }
+
+        //Register
         private void btnRegister_Click(object sender, EventArgs e)
         {
             Register registerForm = new Register();
             registerForm.ShowDialog();
         }
-
-
     }
 }
