@@ -52,6 +52,7 @@
             btnCourse.TabIndex = 1;
             btnCourse.Text = "Course";
             btnCourse.UseVisualStyleBackColor = true;
+            btnCourse.Click += btnCourse_Click;
             // 
             // btnInstructor
             // 
@@ -61,15 +62,17 @@
             btnInstructor.TabIndex = 2;
             btnInstructor.Text = "Instructor";
             btnInstructor.UseVisualStyleBackColor = true;
+            btnInstructor.Click += btnInstructor_Click;
             // 
             // btnDepartment
             // 
-            btnDepartment.Location = new Point(134, 122);
+            btnDepartment.Location = new Point(134, 131);
             btnDepartment.Name = "btnDepartment";
             btnDepartment.Size = new Size(94, 29);
             btnDepartment.TabIndex = 3;
             btnDepartment.Text = "Department";
             btnDepartment.UseVisualStyleBackColor = true;
+            btnDepartment.Click += btnDepartment_Click;
             // 
             // MainForm
             // 

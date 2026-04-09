@@ -139,6 +139,10 @@ namespace MyProject.Models
             .HasIndex(s => s.Email)
             .IsUnique();
 
+            modelBuilder.Entity<Student>()
+            .HasIndex(s => s.Email)
+            .IsUnique();
+
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();

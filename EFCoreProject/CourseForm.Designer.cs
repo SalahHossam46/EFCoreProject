@@ -28,12 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "CourseForm";
+            dataGridViewCourses = new DataGridView();
+            btnAdd = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCourses).BeginInit();
+            SuspendLayout();
+            // 
+            // dataGridViewCourses
+            // 
+            dataGridViewCourses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCourses.Location = new Point(105, 55);
+            dataGridViewCourses.Name = "dataGridViewCourses";
+            dataGridViewCourses.RowHeadersWidth = 51;
+            dataGridViewCourses.Size = new Size(439, 188);
+            dataGridViewCourses.TabIndex = 0;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(164, 279);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(94, 29);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(315, 279);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(94, 29);
+            btnEdit.TabIndex = 2;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(441, 279);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // CourseForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(btnEdit);
+            Controls.Add(btnAdd);
+            Controls.Add(dataGridViewCourses);
+            Name = "CourseForm";
+            Text = "CourseForm";
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCourses).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView dataGridViewCourses;
+        private Button btnAdd;
+        private Button btnEdit;
+        private Button btnDelete;
     }
 }

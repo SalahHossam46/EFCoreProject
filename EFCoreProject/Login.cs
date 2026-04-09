@@ -34,7 +34,7 @@ namespace EFCoreProject
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 MainForm mainForm = new MainForm(user);
-
+                mainForm.Show();
                 this.Hide();
             }
             //If username or password invalid
