@@ -143,7 +143,7 @@ namespace EFCoreProject
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 11;
-            btnSave.Text = "Save";
+            btnSave.Text = "Edit ";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
