@@ -57,6 +57,8 @@ namespace EFCoreProject
 
             btnEdit.Visible = false;
             btnSave.Visible = false;
+            btnDelete.Visible = false;
+            btnAdd.Visible = false;
         }
 
         private void LoadAllInstructors()
