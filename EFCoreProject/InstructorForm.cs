@@ -70,6 +70,7 @@ namespace EFCoreProject
 
             btnEdit.Visible = true;
             btnSave.Visible = false; 
+
         }
 
         private void LoadOwnInstructorProfile()
