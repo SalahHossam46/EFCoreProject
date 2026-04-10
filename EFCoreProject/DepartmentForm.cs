@@ -56,6 +56,8 @@ namespace EFCoreProject
 
             btnEdit.Visible = false;
             btnSave.Visible = false;
+            btnAdd.Visible = false;
+            btnDelete.Visible = false;
         }
 
         private void LoadAllDepartments()
@@ -105,6 +107,8 @@ namespace EFCoreProject
             btnSave.Visible = false;
             txtDepartmentName.ReadOnly = true;
             txtLocation.ReadOnly = true;
+            btnAdd.Visible = false;
+            btnDelete.Visible = false;
 
         }
 
