@@ -40,6 +40,8 @@
             txtId = new TextBox();
             btnSave = new Button();
             btnEdit = new Button();
+            btnAdd = new Button();
+            btnDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInstructors).BeginInit();
             panelDetails.SuspendLayout();
             SuspendLayout();
@@ -152,11 +154,33 @@
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
             // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(261, 409);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(94, 29);
+            btnAdd.TabIndex = 10;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(377, 409);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 11;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // InstructorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(btnAdd);
             Controls.Add(btnEdit);
             Controls.Add(btnSave);
             Controls.Add(panelDetails);
@@ -183,5 +207,7 @@
         private TextBox txtId;
         private Button btnSave;
         private Button btnEdit;
+        private Button btnAdd;
+        private Button btnDelete;
     }
 }

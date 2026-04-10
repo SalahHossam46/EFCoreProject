@@ -191,23 +191,43 @@ namespace EFCoreProject
             }
         }
 
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewCourses.SelectedRows.Count > 0)
             {
-                var result = MessageBox.Show("Are you sure you want to delete this course?", "Confirm Delete", MessageBoxButtons.YesNo);
+                var selectedCourse = (Course)dataGridViewCourses.SelectedRows[0].DataBoundItem;
+
+                // Check if course has enrollments
+                int enrollmentCount;
+                using (var tempContext = new MyDbContext())
+                {
+                    enrollmentCount = tempContext.StudentCourses.Count(sc => sc.CourseId == selectedCourse.Id);
+                }
+
+                string message = $"Are you sure you want to delete '{selectedCourse.Name}'?";
+
+                if (enrollmentCount > 0)
+                {
+                    message = $"Cannot delete course '{selectedCourse.Name}' because it has {enrollmentCount} student enrollment(s).\n\nPlease remove all students from this course first.";
+                    MessageBox.Show(message, "Cannot Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var result = MessageBox.Show(message, "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
                 if (result == DialogResult.Yes)
                 {
-                    var selectedCourse = (Course)dataGridViewCourses.SelectedRows[0].DataBoundItem;
                     courseService.DeleteCourse(selectedCourse.Id);
                     LoadAllCourses();
-                    MessageBox.Show("Course deleted successfully");
+                    MessageBox.Show("Course deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Please select a course to delete");
+                MessageBox.Show("Please select a course to delete", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
     }
 }

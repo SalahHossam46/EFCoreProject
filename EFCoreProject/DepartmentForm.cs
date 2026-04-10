@@ -69,6 +69,9 @@ namespace EFCoreProject
 
             btnEdit.Visible = true;
             btnSave.Visible = false;
+            btnAdd.Visible = true;      
+            btnDelete.Visible = true;   
+
         }
 
         private void LoadInstructorDepartment()
@@ -170,5 +173,64 @@ namespace EFCoreProject
                 MessageBox.Show("Edit mode enabled - click Save to update");
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var addForm = new Form
+            {
+                Text = "Add New Department",
+                Size = new System.Drawing.Size(350, 200),
+                StartPosition = FormStartPosition.CenterParent
+            };
+
+            var txtName = new TextBox { Location = new System.Drawing.Point(120, 20), Width = 180 };
+            var txtLocation = new TextBox { Location = new System.Drawing.Point(120, 60), Width = 180 };
+
+            addForm.Controls.Add(new Label { Text = "Department Name:", Location = new System.Drawing.Point(20, 25), Width = 100 });
+            addForm.Controls.Add(txtName);
+            addForm.Controls.Add(new Label { Text = "Location:", Location = new System.Drawing.Point(20, 65), Width = 100 });
+            addForm.Controls.Add(txtLocation);
+
+            var btnOk = new Button { Text = "OK", Location = new System.Drawing.Point(80, 110), DialogResult = DialogResult.OK };
+            var btnCancel = new Button { Text = "Cancel", Location = new System.Drawing.Point(180, 110), DialogResult = DialogResult.Cancel };
+            addForm.Controls.Add(btnOk);
+            addForm.Controls.Add(btnCancel);
+
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                var newDept = new Department
+                {
+                    Name = txtName.Text,
+                    Location = txtLocation.Text
+                };
+
+                departmentService.AddDepartment(newDept);
+                LoadAllDepartments();
+                MessageBox.Show("Department added successfully");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewDepartments.SelectedRows.Count > 0)
+            {
+                var selectedDept = (Department)dataGridViewDepartments.SelectedRows[0].DataBoundItem;
+
+                var result = MessageBox.Show($"Delete {selectedDept.Name}?", "Confirm",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    departmentService.DeleteDepartment(selectedDept.Id);
+                    LoadAllDepartments();
+                    MessageBox.Show("Department deleted successfully");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a department to delete");
+            }
+        }
+
     }
 }
